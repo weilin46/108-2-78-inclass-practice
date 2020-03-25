@@ -36,5 +36,45 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 library(googlesheets4)
 library(dplyr)
 library(lubridate)
+exDataPost80s <- read_csv("https://www.dropbox.com/s/rc6t40gsxduysz6/exDataPost80s.csv?dl=1")
+View(exDataPost80s)
+
+```
+##  Create objects 
+```{r}
+a <- 2
+a = 2 # = 與 <-同義
+3 -> b
+a+b
 ```
 
+```{r}
+'我的年紀'<- 18
+my_age <- '我的年紀'
+```
+```{r}
+vNum1 <- c(-1,5)
+vNum2 <- c(2,3)
+vNum4 <- c() # 空向量
+```
+
+```{r}
+vNum3 <- c(vNum2, vNum1)
+vNum4 <- c(vNum4, vNum1) # 向量疊代 （recursive vector concatenate）
+```
+
+```{r}
+library(httr)
+library(dplyr)
+GET("https://api.github.com/repos/tpemartin/108-2-56-inclass-practice/commits") %>%
+  content() %>%
+  View()
+```
+
+```{r}
+library(googlesheets4)
+`出席狀況表單網址` <-  # 缺乏定義值
+  'https://docs.google.com/spreadsheets/d/1oB-5hj1pO5g8FMpZbA7RgIG8NvCRx6WvLPwvleCEV4Q/edit#gid=987577191'
+ss <- as_sheets_id(`出席狀況表單網址`)
+homework_sheet <- sheets_read(ss,sheet=1)
+```
